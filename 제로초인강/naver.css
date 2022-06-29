@@ -159,7 +159,12 @@ MDN사이트참고
 컨테이닝 블록의 모든것 부모 자식간의 마진보더패딩크기에따라 서로 영향
 https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
 쌓임맥락:태그 겹칠때 뭐가 위쪽인지
-블록서식문맥:
+블록서식문맥: 부모입장에서 어디까지 자식인가 파악 (display: block 이랑은 다른것)
+float같은경우 문서의 사진삽입처럼 다른 영역과 컨텐츠만 안겹치게 합쳐지는데 이게 합쳐진
+큰 영역이 부모가 된게아님 부모로 설정해주려면 overflow: auto;(자식이 넘치면 스크롤만듬
+hidden;(자식이 넘치면 잘라버림) 따로줘야함 이런 관계
+https://developer.mozilla.org/ko/docs/Web/Guide/CSS/Block_formatting_context
+
 a:같은 효과 적용우선순위 블로그참고
 https://www.zerocho.com/category/CSS/post/588cb95ca63e64132496a5d5
 
