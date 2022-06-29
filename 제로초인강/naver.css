@@ -86,6 +86,9 @@ div #header-search h1 {
 }
 
 /* 
+MDN사이트참고
+https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
+컨테이닝 블록의 모든것 부모 자식간의 마진보더패딩크기에따라 서로 영향
 쌓임맥락:태그 겹칠때 뭐가 위쪽인지
 블록서식문맥:
 */
