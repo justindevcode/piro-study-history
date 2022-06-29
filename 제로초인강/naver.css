@@ -296,6 +296,98 @@ main {
   width: 100%;
 }
 
+#main-centered {
+  padding: 8px 10px;
+  width: 1100px;
+}
+
+#main-ad {
+  float: left;
+  width: 740px;
+  height: 120px;
+
+  display: inline-block;
+  background: #555;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+#main-login {
+  display: inline-block;
+  width: 332px;
+  height: 120px;
+  vertical-align: top;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+#main-ytn {
+  display: inline-block;
+  width: 740px;
+  height: 46px;
+  background-color: white;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+#main-newsstand {
+  display: inline-block;
+  width: 740px;
+  height: 246px;
+  background-color: white;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+#main-weather {
+  display: inline-block;
+  width: 332px;
+  height: 142px;
+  background-color: white;
+  margin-bottom: 8px;
+}
+
+#main-second-ad {
+  display: inline-block;
+  width: 332px;
+  height: 150px;
+  background: #555;
+  margin-bottom: 8px;
+}
+
+#main-category {
+  float: left;
+  width: 740px;
+  height: 837px;
+  background: white;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+#main-shopping {
+  float: left;
+  width: 332px;
+  height: 837px;
+  background: white;
+  margin-bottom: 8px;
+}
+
+#main-event {
+  float: left;
+  width: 740px;
+  height: 130px;
+  background: white;
+  vertical-align: top;
+  margin-right: 8px;
+}
+
+#main-third-ad {
+  float: left;
+  width: 332px;
+  height: 130px;
+  background: #555;
+}
+
 /* 
 MDN사이트참고
 컨테이닝 블록의 모든것 부모 자식간의 마진보더패딩크기에따라 서로 영향
