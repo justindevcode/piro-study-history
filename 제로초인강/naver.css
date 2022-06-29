@@ -408,4 +408,8 @@ nth-of-type은 앞에써준 태그 그종류의 자식만 셈
 마진상쇄정복 overflow, float, position등 사용해서 발생요인 3가지 모두 해결가능방법은
 displat inline-block 만들면 (추가로 width를 100% ?) 전부해결되긴함
 https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing
+
+inline-block 사용하면 픽섹 딱맞게 두 영역 맞췄는데 넘어가는경우 html의 div 엔터로 넘길때
+그것이 4픽셀정도인가 반영 이상한 문제이긴한데 자식태그를 float하고 부모태그를 inline-block해서
+맞춰줌
 */
