@@ -3,11 +3,24 @@
   width: 1080px;
 }
 
-div #header-search > h1 {
-  width: 280px;
-  display: inline-block;
+#header-search a {
+  text-decoration: none;
 }
 
+div #header-search h1 {
+  width: 198px;
+  height: 48px;
+  display: inline-block;
+  /* background-image: url(./sp_search.png);
+  background-position: -4px -10px;
+  text-indent: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat; */
+  background: url(./sp_search.png) -4px -4px no-repeat;
+}
+#header-search h1 span {
+  display: none;
+}
 /* #header_center h1 {} 자손일때는 > 없이  */
 
 #header-search h2 {
@@ -15,8 +28,13 @@ div #header-search > h1 {
 }
 
 #header-search fieldset {
-  width: 520px;
+  margin-left: 20px;
+  /* 시계방향으로 패딩한번에 */
+  padding: 12px 0 12px 10px;
+  width: 521px;
+  height: 49px;
   display: inline-block;
+  border: 2px solid #03cf5d;
 }
 
 .blind {
