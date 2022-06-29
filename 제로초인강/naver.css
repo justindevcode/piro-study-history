@@ -2,6 +2,24 @@
   box-sizing: border-box; /* 모든 요소에 마진 보더 패딩계산할때 다 더해서 계산하는것으로 변경 */
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#fixed {
+  /* 스크롤 내려도 화면고정*/
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50px;
+}
+
 #header-center {
   margin: 0 auto;
   width: 1080px;
