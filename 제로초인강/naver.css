@@ -9,6 +9,19 @@ body {
   font-family: Dotum, "돋움", Helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
 #fixed {
   /* 스크롤 내려도 화면고정*/
   position: fixed;
@@ -57,7 +70,7 @@ header {
 
 #header-search {
   clear: both;
-  padding-top: 12px;
+  padding-top: 45px;
 }
 
 #header-search a {
@@ -301,24 +314,36 @@ main {
   width: 1100px;
 }
 
+#main-first-block {
+  display: inline-block;
+  width: 100%;
+}
+
 #main-ad {
   float: left;
   width: 740px;
   height: 120px;
-
-  display: inline-block;
   background: #555;
   margin-right: 8px;
   margin-bottom: 8px;
 }
 
 #main-login {
-  display: inline-block;
+  float: left;
   width: 332px;
   height: 120px;
   vertical-align: top;
   background-color: white;
   margin-bottom: 8px;
+}
+
+#main-second-block .inline-block:first-child {
+  width: 740px;
+}
+
+#main-second-block .inline-block:last-child {
+  width: 332px;
+  vertical-align: top;
 }
 
 #main-ytn {
@@ -330,6 +355,12 @@ main {
   margin-bottom: 8px;
 }
 
+#main-ytn h3,
+#main-ytn ol {
+  /*콤마 전부다 써줘야하는거 주의*/
+  display: inline-block;
+}
+
 #main-newsstand {
   display: inline-block;
   width: 740px;
@@ -337,6 +368,36 @@ main {
   background-color: white;
   margin-right: 8px;
   margin-bottom: 8px;
+}
+
+#main-newsstand h3 {
+  height: 45px;
+  border-bottom: 1px solid #ebeef3;
+}
+
+#main-newsstand ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#main-newsstand li {
+  /*가로가운데 정렬 부모*/
+  float: left;
+  width: 123px;
+  height: 67px;
+  border-right: 1px solid #f1f3f6;
+  border-bottom: 1px solid #f1f3f6;
+  text-align: center;
+}
+
+#main-newsstand li img {
+  /*세로 가운데 정렬 자식*/
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  /*이미지 기준에 사진 꼭대기라 위치 맞춰주려 사진높이의
+  절반만큼 올려줌*/
 }
 
 #main-weather {
@@ -370,6 +431,12 @@ main {
   height: 837px;
   background: white;
   margin-bottom: 8px;
+}
+
+#main-third-block,
+#main-fourth-block {
+  display: inline-block;
+  width: 100%;
 }
 
 #main-event {
