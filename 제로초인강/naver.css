@@ -530,6 +530,79 @@ main {
   background: #555;
 }
 
+#main-category-top {
+  display: inline-block;
+  width: 100%;
+  border-bottom: 1px solid #ebeef3;
+}
+
+#subject-list,
+#subject-all,
+#subject-prev,
+#subject-next {
+  float: left;
+  height: 45px;
+  padding: 0;
+}
+
+#subject-list {
+  width: 603px;
+  position: relative;
+}
+
+#subject-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#subject-list li {
+  float: left;
+}
+
+#subject-all,
+#subject-prev,
+#subject-next {
+  position: relative;
+  width: 45px;
+  border: none;
+  border-left: 1px solid #ebeef3;
+  background: white;
+}
+
+#subject-all span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 20px;
+  height: 14px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -218px -257px;
+}
+
+#subject-prev span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -320px 0;
+}
+
+#subject-next span:last-child {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 8px;
+  height: 16px;
+  background-image: url(./sp_themecast.png);
+  background-repeat: no-repeat;
+  background-position: -320px -52px;
+}
+
 /* 
 MDN사이트참고
 컨테이닝 블록의 모든것 부모 자식간의 마진보더패딩크기에따라 서로 영향
