@@ -113,18 +113,20 @@ nav li {
   display: inline-block;
 }
 
-nav li span:first-child {
-  height: 16px;
-  display: inline-block;
-  background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
-  background-repeat: no-repeat;
-}
-
 nav li:first-child span:first-child {
   /*순서에 의존해서 first-child쓰는거 별로안좋음
     유지 보수할때 순서만 바꾸는데 이 코드 전부다 수정해야할수있음 */
   width: 25px;
   background-position: 0 -285px;
+  margin-left: 0; /*a*/
+}
+
+nav li span:first-child {
+  height: 16px;
+  display: inline-block;
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+  background-repeat: no-repeat;
+  margin-left: 14px; /*a*/
 }
 
 nav li:nth-child(2) span:first-child {
@@ -154,8 +156,11 @@ nav li:nth-child(6) span:first-child {
 
 /* 
 MDN사이트참고
-https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
 컨테이닝 블록의 모든것 부모 자식간의 마진보더패딩크기에따라 서로 영향
+https://developer.mozilla.org/ko/docs/Web/CSS/Containing_block
 쌓임맥락:태그 겹칠때 뭐가 위쪽인지
 블록서식문맥:
+a:같은 효과 적용우선순위 블로그참고
+https://www.zerocho.com/category/CSS/post/588cb95ca63e64132496a5d5
+
 */
