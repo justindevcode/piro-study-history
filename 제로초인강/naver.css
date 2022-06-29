@@ -6,6 +6,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-family: Dotum, "돋움", Helvetica, "Apple SD Gothic Neo", sans-serif;
 }
 
 #fixed {
@@ -20,13 +21,22 @@ body {
   border-radius: 50px;
 }
 
+.relative {
+  position: relative;
+}
+
 .center-align {
   margin: 0 auto;
   width: 1080px;
 }
 
+header {
+  height: 170px;
+}
+
 #header-top {
   float: right;
+  margin-top: 8px;
 }
 
 #header-top span {
@@ -38,6 +48,7 @@ body {
 
 #header-search {
   clear: both;
+  padding-top: 12px;
 }
 
 #header-search a {
@@ -56,7 +67,8 @@ div #header-search h1 {
   background: url(./sp_search.png) -4px -4px no-repeat;
   vertical-align: middle; /*같은줄 높이정렬*/
   position: relative;
-  top: -6px;
+  top: -5px;
+  left: 1px;
 }
 #header-search h1 span {
   display: none;
@@ -68,7 +80,7 @@ div #header-search h1 {
 }
 
 #header-search fieldset {
-  margin-left: 20px;
+  margin-left: 18px;
   /* 시계방향으로 패딩한번에 */
   padding: 12px 0 12px 10px;
   width: 521px;
@@ -115,12 +127,18 @@ div #header-search h1 {
   width: 21px;
   height: 21px;
   display: inline-block;
-  margin: 14px;
+  margin: 10px;
+}
+
+nav {
+  height: 46px;
+  border-top: 1px solid #f1f3f6;
+  border-bottom: 1px solid #d1d8e4;
 }
 
 nav ul {
   margin: 0;
-  padding: 0;
+  padding: 16px 0 0 4px;
   list-style: none;
 }
 
@@ -167,6 +185,26 @@ nav li:nth-child(5) span:first-child {
 nav li:nth-child(6) span:first-child {
   width: 25px;
   background-position: -70px -285px;
+}
+
+.nav-divider {
+  display: inline-block;
+  margin: 18px 16px 0;
+  width: 1px;
+  height: 14px;
+  background: #ebeef3;
+}
+
+#search-ranking {
+  position: absolute;
+  top: 16px;
+  right: 100px;
+}
+
+#rank-number {
+  margin-top: -9px;
+  color: #00ab33;
+  font-size: 16px;
 }
 
 /* 
