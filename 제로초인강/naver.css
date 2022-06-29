@@ -376,6 +376,8 @@ main {
 }
 
 #main-newsstand ul {
+  /*li 다 감싸기위해 인라인블록*/
+  display: inline-block;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -384,7 +386,8 @@ main {
 #main-newsstand li {
   /*가로가운데 정렬 부모*/
   float: left;
-  width: 123px;
+  /* calc 픽셀나눌때 비율로 나누기 연산자 사이에 띄어쓰기 주의 */
+  width: calc(100% / 6);
   height: 67px;
   border-right: 1px solid #f1f3f6;
   border-bottom: 1px solid #f1f3f6;
@@ -479,4 +482,6 @@ https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Box_Model/Mastering_margin_col
 inline-block 사용하면 픽섹 딱맞게 두 영역 맞췄는데 넘어가는경우 html의 div 엔터로 넘길때
 그것이 4픽셀정도인가 반영 이상한 문제이긴한데 자식태그를 float하고 부모태그를 inline-block해서
 맞춰줌
+
+가로의 인라인문제는 float left으로 세로의 인라인문제는 vertical-align: top으로 해결
 */
