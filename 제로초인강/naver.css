@@ -11,7 +11,7 @@ body {
 #fixed {
   /* 스크롤 내려도 화면고정*/
   position: fixed;
-  top: 50px;
+  bottom: 50px;
   right: 50px;
   display: inline-block;
   width: 100px;
@@ -23,6 +23,21 @@ body {
 .center-align {
   margin: 0 auto;
   width: 1080px;
+}
+
+#header-top {
+  float: right;
+}
+
+#header-top span {
+  color: #888;
+  letter-spacing: -1px; /*글자사이 간격*/
+  font-size: 11px;
+  line-height: 22px; /*폰트 중심선 유지?*/
+}
+
+#header-search {
+  clear: both;
 }
 
 #header-search a {
