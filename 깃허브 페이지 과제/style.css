@@ -110,6 +110,10 @@
   margin-top: 20px;
 }
 
+#main-middle-right input:focus {
+  background-color: aquamarine;
+}
+
 .blue {
   color: aqua;
   display: inline;
