@@ -17,6 +17,7 @@ while True:
         print('playerA : ', num)
         if num == 31:
             lose = "A";
+            win = "B"
             break;
 
     if lose != None:
@@ -37,8 +38,9 @@ while True:
         num += 1
         print('playerB : ', num)
         if num == 31:
-            lose = "A";
+            lose = "B";
+            win = "A"
             break;
     if lose != None:
         break
-print('게임끝')
+print("player",win,"win!")
