@@ -27,12 +27,17 @@
           value="{{movieinfo.openyear}}"
         />
         장르:
-        <input
-          type="text"
-          name="genre"
-          placeholder="장르"
-          value="{{movieinfo.genre}}"
-        />
+        <select name="genre" id="">
+          {% for genrename in genrename %} 
+          {% if movieinfo.genre == genrename.1%}
+          <option selected="selected" value="{{genrename.0}}">
+            {{genrename.1}}
+          </option>
+
+          {% else %}
+          <option value="{{genrename.0}}">{{genrename.1}}</option>
+          {% endif %} {% endfor %}
+        </select>
         별점:
         <input
           type="number"

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+    
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,12 +8,25 @@
     <title>홈 화면</title>
   </head>
   <body>
+    {% load mathfilters %}
+    <form action="{% url 'movie:home' %}">
+        <button name="sort" value="1">제목오름차순</button>
+        <button name="sort" value="2">제목내림차순</button>
+        <button name="sort" value="3">별점오름차순</button>
+        <button name="sort" value="4">별점내림차순</button>
+        <button name="sort" value="5">상영시간오름차순</button>
+        <button name="sort" value="6">상영시간내림차순</button>
+        <button name="sort" value="7">등록순</button>
+      </form>
     {% for i in movieinfo %}
+    
+    
     <article>
       <h1><a href="/movie/{{i.id}}"> 제목: {{i.title}} </a></h1>
       <p>개봉년도: {{i.openyear}}</p>
       <p>장르: {{i.genre}}</p>
       <p>평점: {{i.score}}</p>
+      <p>상영시간: {{ i.runningtime|intdiv:60 }}시간  {{ i.runningtime|mod:60 }}분</p>
     </article>
     {% endfor %}
 
