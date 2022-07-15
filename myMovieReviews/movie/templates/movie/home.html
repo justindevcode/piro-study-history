@@ -2,12 +2,17 @@
 <html lang="ko">
     
   <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>홈 화면</title>
   </head>
   <body>
+    <div id="mainflex">
+      <div ><h1 id="title">*나의 영화 리뷰</h1></div>
+      <div id="top">
     {% load mathfilters %}
     <form action="{% url 'movie:home' %}">
         <button name="sort" value="1">제목오름차순</button>
@@ -18,18 +23,23 @@
         <button name="sort" value="6">상영시간내림차순</button>
         <button name="sort" value="7">등록순</button>
       </form>
+      <a href="/create" id="newcon">리뷰작성</a>
+      </div>
+      <div id="main">
     {% for i in movieinfo %}
     
-    
     <article>
-      <h1><a href="/movie/{{i.id}}"> 제목: {{i.title}} </a></h1>
+      <h1><a href="/movie/{{i.id}}"> {{i.title}} </a></h1>
       <p>개봉년도: {{i.openyear}}</p>
       <p>장르: {{i.genre}}</p>
       <p>평점: {{i.score}}</p>
       <p>상영시간: {{ i.runningtime|intdiv:60 }}시간  {{ i.runningtime|mod:60 }}분</p>
     </article>
+  
     {% endfor %}
+  </div>
 
-    <a href="/create">리뷰작성</a>
+    
+  </div>
   </body>
 </html>

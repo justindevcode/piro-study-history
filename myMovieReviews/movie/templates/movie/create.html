@@ -12,12 +12,12 @@
       <h2>제목: <input type="text" name="title" placeholder="제목" /></h2>
       <p>
         개봉년도: <input type="number" name="openyear" placeholder="개봉년도" />
-        <select name="genre" id="">
+        장르: <select name="genre" id="">
           {% for genrename in genrename %}
           <option value="{{genrename.0}}">{{genrename.1}}</option>
           {% endfor %}
         </select>
-        <input type="number" name="score" placeholder="별점" />
+        별점: <input type="number" name="score" placeholder="별점" />
         러닝타임:
         <input type="number" name="runningtime" placeholder="러닝타임" />
       </p>
