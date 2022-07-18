@@ -1,6 +1,6 @@
 사진
 
-<img width="1062" alt="1" src="https://user-images.githubusercontent.com/108222981/179445314-54024b3b-0072-42b7-91a8-4ab4fbcceee3.PNG">
+<img width="877" alt="3" src="https://user-images.githubusercontent.com/108222981/179450544-69f01642-48e5-4bcd-baa6-ca1fd977f945.PNG">
 
 
 페이지링크
