@@ -19,7 +19,7 @@
       </h2>
       {% if ideainfo.ideaphoto %}
       
-      <p>이전사진 {{ideainfo.ideaphoto.url}} 사진을 새로추가하지않으면 초기화됩니다. </p>
+      <p>이전사진 {{ideainfo.ideaphoto.url}} <input type="checkbox" name="clear" value="clear" id="clear"><label for="clear">clear</label>  </p>
 
       {% endif %}
       <p>

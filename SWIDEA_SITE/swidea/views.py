@@ -75,7 +75,20 @@ def update(request, id):
         ideacontent = request.POST["ideacontent"]
         ideainterest = request.POST["ideainterest"]
         ideatool = request.POST["ideatool"]
+        clear = request.POST.get("clear")
         ideatoolname = swtool.objects.get(id = ideatool)
+        print(ideaphoto,'rr')
+        if clear == 'clear':
+            swidea.objects.filter(id=id).update(ideaname = ideaname,ideaphoto=None,  ideacontent = ideacontent, ideainterest=ideainterest, ideatool=ideatoolname)
+            return redirect(f"/swidea/{id}")
+        else:
+            if ideaphoto == None:
+                swidea.objects.filter(id=id).update(ideaname = ideaname,  ideacontent = ideacontent, ideainterest=ideainterest, ideatool=ideatoolname)
+                return redirect(f"/swidea/{id}")
+            else:
+                swidea.objects.filter(id=id).update(ideaname = ideaname,ideaphoto=ideaphoto,  ideacontent = ideacontent, ideainterest=ideainterest, ideatool=ideatoolname)
+                return redirect(f"/swidea/{id}")
+        
         # a = request.POST["input_check"]
         # print(a)
         # if a == 1:
@@ -88,8 +101,8 @@ def update(request, id):
         # now = datetime.datetime.now()
         # timepath = now.strftime('/%Y%m%d/')
         # ideaphotopath = 'posts'+timepath+ideaphoto
-        swidea.objects.filter(id=id).update(ideaname = ideaname,ideaphoto=ideaphoto,  ideacontent = ideacontent, ideainterest=ideainterest, ideatool=ideatoolname)
-        return redirect(f"/swidea/{id}")
+        # swidea.objects.filter(id=id).update(ideaname = ideaname,ideaphoto=ideaphoto,  ideacontent = ideacontent, ideainterest=ideainterest, ideatool=ideatoolname)
+        # return redirect(f"/swidea/{id}")
 
 
     ideainfo = swidea.objects.get(id=id)
