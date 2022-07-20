@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tool디테일</title>
+</head>
+<body>
+    <h1>개발툴 디테일</h1>
+    <article>
+        <h2>{{ toolinfo.toolname }}</h2>
+
+        <p>{{toolinfo.tooltype}}</p>
+        <p>{{toolinfo.toolcontent}}</p>
+
+        <p>만들수있는 sw목록</p>
+        <div>
+            {% for ideainfo in all_swidea %}
+            <a href="{% url 'swidea:detail' ideainfo.id %}">{{ ideainfo.ideaname }}</a>
+            {% endfor %}
+        </div>
+    </article>
+    <div>
+        <!-- href 쉽게 작성하는법 urls파일에서 name으로 지정했던거이용 -->
+        업데이트 : <a href="{% url 'swidea:toolupdate' toolinfo.id %}">update</a>
+        <!-- 여기서 딜리트 post id가져오는건 지금 현제페이지 디테일페이지에 숫자적혀있는거 그거 그데로가저오는거 -->
+        <form action="{% url 'swidea:tooldelete' toolinfo.id %}" method="post">
+          {% csrf_token %}
+          <button>삭제</button>
+        </form>
+        <!-- <a href="/delete/{{post.id}}">삭제하기</a> 이렇게 링크로 쓰면안됨 -->
+      </div>
+      <div>툴홈 화면으로 가기: <a href="/toolhome">Home</a></div>
+</body>
+</html>

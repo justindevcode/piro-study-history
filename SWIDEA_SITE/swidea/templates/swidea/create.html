@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+  <head>
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 등록</title>
+  </head>
+  <body>
+    <form action="/create" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>
+        <input type="text" name="ideaname" placeholder="아이디어명" />
+      </h2>
+      <p>
+        <input type="file" name="ideaphoto">
+      </p>
+      <textarea name="ideacontent" id="" cols="30" rows="10"></textarea>
+      <p><input type="number" name="ideainterest" placeholder="아이디어관심도" /></p>
+
+      <select name="ideatool" id="">
+        {% for toolname in toollist %}
+        <option value="{{toolname.id}}">{{toolname.toolname}}</option>
+        {% endfor %}
+      </select>
+
+      <div>
+        
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+    <a href="{% url 'swidea:home' %}">home</a>
+  </body>
+</html>

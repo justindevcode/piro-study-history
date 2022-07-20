@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>툴 등록</title>
+  </head>
+  <body>
+    <form action="/toolcreate" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>
+        <input type="text" name="toolname" placeholder="툴이름" />
+      </h2>
+      <p><input type="text" name="tooltype" placeholder="툴종류" /></p>
+      <textarea name="toolcontent" id="" cols="30" rows="10"></textarea>
+
+
+      <div>
+        
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+    <a href="{% url 'swidea:toolhome' %}">toolhome</a>
+  </body>
+</html>

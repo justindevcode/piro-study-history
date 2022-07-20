@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>아이디어 매니저</h1>
+    <a href="/create">아이디어작성</a>
+    <a href="/toolhome">툴홈</a>
+    <form action="{% url 'swidea:home' %}" >
+        <select name="sort" onchange="this.form.submit()">
+            <option selected="selected"  value="none">--정렬기준--</option>
+            <option value="1">이름순</option>
+            <option value="2">찜순</option>
+            <option value="3">등록순</option>
+            <option value="4">최신순</option>
+        </select>
+    </form>
+
+    
+    
+    {% for ideainfo in ideainfo %}
+
+    <article>
+      {% if ideainfo.ideaphoto %}
+    <p>
+      <img src="{{ ideainfo.ideaphoto.url }}"/>
+    </p>
+      {% endif %}
+      <div>
+      <a href="/swidea/{{ideainfo.id}}">
+        {{ideainfo.ideaname}}
+      </a>
+      <p>예상 개발 툴 {{ideainfo.ideatool.toolname}}</p>
+      <form action="{% url 'swidea:home' %}">
+      <p>아이디어 관심도 {{ideainfo.ideainterest}}</p>
+      <button name="plus"  value="{{ideainfo.id}}">+</button>
+      <button name="minus" value="{{ideainfo.id}}">-</button>
+    </form>
+      <p>찜유무 {{ideainfo.ideachoice}}</p>
+      <form action="{% url 'swidea:home' %}">
+        {% if ideainfo.ideachoice %}
+        <button name="choice"  value="{{ideainfo.id}}">찜해제</button>
+        {% else %}
+        <button name="choice" value="{{ideainfo.id}}">찜</button>
+        {% endif %}
+      </form>
+
+    </div>
+    </article>
+    {% endfor %}
+</body>
+</html>

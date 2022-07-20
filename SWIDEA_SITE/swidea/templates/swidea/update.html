@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+  <head>
+    <link rel="stylesheet" href="{% static 'css/create.css' %}">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 등록</title>
+
+  </head>
+  <body>
+
+    <form action="/update/{{ideainfo.id}}" name = "ideaphoto" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>
+        
+        <input type="text" name="ideaname" placeholder="아이디어명" value="{{ideainfo.ideaname}}"/>
+      </h2>
+      {% if ideainfo.ideaphoto %}
+      
+      <p>이전사진 {{ideainfo.ideaphoto.url}} 사진을 새로추가하지않으면 초기화됩니다. </p>
+
+      {% endif %}
+      <p>
+        <input type="file" name="ideaphoto" >
+      </p>
+      <textarea name="ideacontent" id="" cols="30" rows="10" >{{ideainfo.ideacontent}}</textarea>
+      <p><input type="number" name="ideainterest" placeholder="아이디어관심도" value="{{ideainfo.ideainterest}}" /></p>
+
+      <select name="ideatool" id="">
+        {% for toolname in toollist %}
+        {% if ideainfo.ideatool == toolname %}
+        <option selected="selected" value="{{toolname.id}}">{{toolname.toolname}}</option>
+        {% else %}
+        <option value="{{toolname.id}}">{{toolname.toolname}}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
+      <div>
+        
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+    <a href="{% url 'swidea:home' %}">home</a>
+    <script>
+        a = document.getElementById("input_check")
+        if(a == 1) {
+            document.getElementById("input_check_hidden").disabled = true;
+        }
+        console.log('안녕')
+    </script>
+  </body>
+</html>
+
+<!-- <input type="checkbox" name="check" id="check"> <label for="checl">clear</label> -->
