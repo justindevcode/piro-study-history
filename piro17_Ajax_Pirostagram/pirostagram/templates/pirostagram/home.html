@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>piroinstagram</title>
+</head>
+<body>
+    <div >
+        <div id="main">
+        {% for commentinfo in commentinfo %}
+        <div id="deleteindex{{commentinfo.id}}">{{commentinfo.content}}
+            {% if commentinfo.like == False %}
+            <button id="butcomment{{commentinfo.id}}" onclick="onClickLike( {{ commentinfo.id }}, 'dislike')">하트x</button>
+            {% else %}
+            <button id="butcomment{{commentinfo.id}}" onclick="onClickLike( {{ commentinfo.id }}, 'like')">하트o</button>
+            {% endif %}
+            <button onclick="onClickdelete({{commentinfo.id}})">삭제</button>
+        </div>
+        {% endfor %}
+    </div>
+        <input type="text" id="content"><button onclick="onClickcontent()">등록</button>
+    </div>
+
+    <script>
+        const requestcontent = new XMLHttpRequest();
+
+        const onClickcontent = () => {
+            
+            const url = "/content_ajax/";
+            requestcontent.open("POST",url,true);
+            requestcontent.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-unlencoded"
+            );
+            requestcontent.send(JSON.stringify({content: document.getElementById("content").value}));
+            console.log("1")
+        }
+
+        requestcontent.onreadystatechange = () => {
+            if (requestcontent.readyState === XMLHttpRequest.DONE){
+                if(requestcontent.status < 400){
+                    const {content,id} = JSON.parse(requestcontent.response);
+                    let newComment = document.createElement('div');
+                    newComment.id = `deleteindex${id}`
+                    newComment.innerHTML = `${content} <button id="butcomment${id}" onclick="onClickLike( ${id}, 'dislike')">하트x</button> <button onclick="onClickdelete(${id})">삭제</button>` 
+                    document.getElementById("main").appendChild(newComment)
+                    inputinit = document.getElementById('content');
+                    inputinit.value = null;
+                    
+                }
+            }
+        }
+
+        const requestLike = new XMLHttpRequest();
+
+        const onClickLike = (id,type) => {
+            const url = "/like_ajax/";
+            requestLike.open("POST",url,true);
+            requestLike.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-unlencoded"
+            );
+            requestLike.send(JSON.stringify({id: id, type:type}));
+        }
+
+        requestLike.onreadystatechange = () => {
+            if (requestLike.readyState === XMLHttpRequest.DONE){
+                if(requestLike.status < 400){
+                    const {id, type} = JSON.parse(requestLike.response);
+                    let element = document.getElementById(`butcomment${id}`);
+                    console.log(element)
+                    if(type == 'like'){
+                        element.removeEventListener('onclick',onClickLike)
+                        element.onclick = function(){onClickLike( id, 'like')};
+                        element.innerHTML = '하트o'
+
+                    }
+                    else{
+                        console.log('x로 바뀜')
+                        element.removeEventListener('onclick',onClickLike)
+                        element.onclick = function(){onClickLike( id, 'dislike')}
+                        element.innerHTML = '하트x'
+                    }
+                    
+                }
+            }
+        }
+
+        const requestDelete = new XMLHttpRequest();
+
+        const onClickdelete = (id) => {
+            const url = "/delete_ajax/";
+            requestDelete.open("POST",url,true);
+            requestDelete.setRequestHeader(
+                "Content-Type",
+                "application/x-www-form-urlencoded"
+            );
+            requestDelete.send(JSON.stringify({id:id}));
+        }
+
+        requestDelete.onreadystatechange = () => {
+            if (requestDelete.readyState === XMLHttpRequest.DONE){
+                if(requestDelete.status < 400){
+                    const {id} = JSON.parse(requestDelete.response);
+                    const topdom = document.getElementById("main");
+                    const deletedom = document.getElementById(`deleteindex${id}`);
+                    topdom.removeChild(deletedom);
+
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
