@@ -5,9 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>piroinstagram</title>
+    <style>
+        * {
+            /* box-sizing: border-box; */
+        }
+        html{
+            /* height: 100%; */
+        }
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }        
+        #flex1 {
+            margin-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            padding: 1rem;
+            border-radius: 20px;
+            border: 4px solid;
+            border-color: black;
+        }
+    </style>
 </head>
 <body>
-    <div >
+    <div id="flex1">
+        <div>
+            <img
+            class="img-responsive center-block text-center"
+            src="https://picsum.photos/seed/1/300/300"
+          />
+        </div>
         <div id="main">
         {% for commentinfo in commentinfo %}
         <div id="deleteindex{{commentinfo.id}}">{{commentinfo.content}}
@@ -20,7 +54,9 @@
         </div>
         {% endfor %}
     </div>
+    <div>
         <input type="text" id="content"><button onclick="onClickcontent()">등록</button>
+    </div>
     </div>
 
     <script>
