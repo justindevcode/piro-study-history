@@ -1,5 +1,7 @@
 # MoonSeokbum
 
+### Period : 2022/07/01 ~ 2022/08/23
+
 # 1주차 git, github, html, css, js기초  
 [기초 클론 코딩강의 따라하기 과제](https://github.com/justindevcode/piro-study-history/tree/main/%EC%A0%9C%EB%A1%9C%EC%B4%88%EC%9D%B8%EA%B0%95)  
 [html,css 기초 페이지 따라하기 과제](https://github.com/justindevcode/piro-study-history/tree/main/%EA%B9%83%ED%97%88%EB%B8%8C%20%ED%8E%98%EC%9D%B4%EC%A7%80%20%EA%B3%BC%EC%A0%9C)  
